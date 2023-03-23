@@ -1,0 +1,6 @@
+# Backend (FastApi)
+__pycache__
+.venv
+tarefas.db
+
+.vscode

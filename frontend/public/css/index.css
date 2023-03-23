@@ -1,0 +1,203 @@
+/* Configurações */
+:root {
+    --gradiente: linear-gradient(270deg,  rgba(86,0,129,1) 1%, rgba(215,90,0,1) 100%);
+    --primary-color: #560081;
+    --secondary-color: rgb(230, 96, 0);
+    --white: aliceblue;
+    --title-font: 'Righteous', cursive;
+    --standard-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 15rem;
+    background: var(--gradiente);
+    color: var(--white);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 50px;
+    padding: 30px;
+    transition: 0.3s;
+    transform: scale(1.5);
+}
+
+.logo:hover {
+    cursor: default;
+    translate: -8px;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+}
+
+.logo h1 {
+    font-family: var(--standard-font);
+    font-size: 30px;
+}
+
+/* Form */
+header form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+    width: 100%;
+    padding: 20px;
+    font-family: var(--title-font);
+}
+
+header form input {
+    width: 400px;
+    height: 2.6rem;
+    border: none;
+    padding-left: 8px;
+    border-radius: 6px;
+
+    color: var(--white);
+    background: transparent;
+    font-size: 20px;
+    font-family: var(--standard-font);
+    border-bottom: 1px solid var(--white);
+}
+
+header form input:focus {
+    outline: none;
+}
+
+header form input:focus, header form input:hover {
+    background-color: rgba(0, 0, 0, 0.164);
+}
+
+header form button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+
+    
+    color: aliceblue;
+    background: transparent;
+    font-size: 24px;
+    font-family: var(--standard-font);
+    font-weight: 900;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+header form button[type="submit"]:hover {
+    background: var(--secondary-color);
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.485);
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    min-height: 70;
+    padding-top: 2rem;
+}
+
+main #tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main #tarefas .tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 700px;
+    min-height: 100px;
+    padding: 30px 50px;
+    
+    border-radius: 24px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.747);
+
+    border-left: 20px solid var(--primary-color);
+    font-family: var(--title-font);
+    transition: 0.3s;
+}
+
+main #tarefas .tarefa-completa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 700px;
+    min-height: 100px;
+    padding: 30px 50px;
+    
+    border-radius: 24px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.747);
+
+    border-left: 20px solid var(--secondary-color);
+    font-family: var(--title-font);
+    transition: 0.3s;
+    background-color: rgb(190, 199, 206);
+}
+
+li .tarefas-info {
+    align-self: flex-start;
+}
+
+.tarefa-completa .tarefas-info {
+    text-decoration: line-through;
+}
+
+.botoes {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+}
+
+
+li .tarefas-info .botoes {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+}
+
+li .tarefas-info .botoes input[type="checkbox"] {
+    transform: scale(1.4);
+}
+
+li .botoes img {
+    border-radius: 50%;
+    width: 36px;
+    padding: 8px;
+}
+
+li .botoes img:hover {
+    background-color: rgb(250, 35, 35);
+    cursor: pointer;
+}
