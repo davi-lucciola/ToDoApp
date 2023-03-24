@@ -42,6 +42,7 @@ function adicionar_completar() {
     checkboxs_completar.map((checkbox) => {
         checkbox.addEventListener('change', async () => {
             const tarefaId = checkbox.id.split('-')[1] // 'checkbox-id' -> ['checkbox', 'id']
+            console.log(tarefaId)
             let tarefa = await (await buscar_tarefa_por_id(tarefaId)).json()
             
             const tarefa_card = document.getElementById(`tarefa-${tarefaId}`);

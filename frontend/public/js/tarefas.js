@@ -7,7 +7,7 @@ function gerar_card_tarefa(tarefa) {
                 <p> ${tarefa.descricao != null ? tarefa.descricao : ''} </p>
             </section>
             <div class="botoes">
-                <input type="checkbox" class="completar-tarefa" id="checkbox-${tarefa.id}"${tarefa.completa ? ' checked' : ''}>
+                <input type="checkbox" class="completar-tarefa" id="checkbox-${tarefa.id}"${tarefa.completa ? ' checked' : ''}/>
                 <span> 
                     <img src="./public/images/trash-icon.png" alt="delete" class="excluir-tarefa" id="delete-${tarefa.id}">
                 </span>
