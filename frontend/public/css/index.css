@@ -51,7 +51,7 @@ header {
 }
 
 .logo h1 {
-    font-family: var(--standard-font);
+    font-family: var(--title-font);
     font-size: 30px;
 }
 
@@ -122,52 +122,54 @@ main {
     justify-content: flex-start;
 
     min-height: 70;
-    padding-top: 2rem;
 }
 
-main #tarefas {
+#tarefas {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 4rem;
 }
 
-main #tarefas .tarefa {
+#tarefas li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     
-    width: 700px;
-    min-height: 100px;
+    width: 60%;
+    max-width: 700px;
+    min-height: 120px;
     padding: 30px 50px;
     
     border-radius: 24px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.747);
+}
 
+#tarefas .tarefa {
     border-left: 20px solid var(--primary-color);
-    font-family: var(--title-font);
     transition: 0.3s;
 }
 
-main #tarefas .tarefa-completa {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    width: 700px;
-    min-height: 100px;
-    padding: 30px 50px;
-    
-    border-radius: 24px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.747);
-
+#tarefas .tarefa-completa {
     border-left: 20px solid var(--secondary-color);
     font-family: var(--title-font);
     transition: 0.3s;
     background-color: rgb(190, 199, 206);
 }
 
-li .tarefas-info {
+.tarefas-info {
     align-self: flex-start;
+}
+
+.tarefas-info span {
+    font-family: var(--standard-font);
+    font-size: 24px;
+}
+
+.tarefas-info p {
+    padding-top: 10px;
+    font-family: var(--title-font);
 }
 
 .tarefa-completa .tarefas-info {
@@ -176,28 +178,26 @@ li .tarefas-info {
 
 .botoes {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
     gap: 8px;
-    height: 100%;
 }
 
-
-li .tarefas-info .botoes {
+li .botoes span {
     display: flex;
-    gap: 8px;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
 }
 
-li .tarefas-info .botoes input[type="checkbox"] {
-    transform: scale(1.4);
+li .botoes span:hover {
+    background-color: rgb(250, 35, 35);
+    cursor: pointer;
 }
 
 li .botoes img {
-    border-radius: 50%;
-    width: 36px;
-    padding: 8px;
-}
-
-li .botoes img:hover {
-    background-color: rgb(250, 35, 35);
-    cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
