@@ -31,7 +31,7 @@ Aplicação feita em live para demostrar como ocorre a comunicação entre o fro
 
 2. Instale as depêndencias atraves do comando: `pip install -r requirements.txt`
 
-3. Inicie sua api rodando com o python o arquivo `./backend/main.py`
+3. Inicie sua api rodando com o python o arquivo "main.py" na pasta "backend" (`python ./backend/main.py`)
  
 4. Baixe a extensão `Live Server` do vscode
 

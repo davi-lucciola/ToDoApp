@@ -85,7 +85,7 @@ header form input:focus {
     outline: none;
 }
 
-header form input:focus, header form input:hover {
+header form input:focus, header form input:hover, header form input:valid {
     background-color: rgba(0, 0, 0, 0.164);
 }
 
