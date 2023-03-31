@@ -4,7 +4,7 @@
 
 Aplicação feita em live para demostrar como ocorre a comunicação entre o frontend e o backend 
 
-<div align="center">
+<div style="align: center;">
     <img src="frontend/public/images/taks-app-to-readme.gif"
 </div>
 
