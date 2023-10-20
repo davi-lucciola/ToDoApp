@@ -1,0 +1,29 @@
+{% extends "__layout.html" %}
+
+{% block style %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+{% endblock %}
+
+{% block header %}
+	<header>
+		<div class="logo">
+			<img src="{{ url_for('static', filename='images/tasklist-icon.png') }}" alt="to-do-icon">
+			<h1> To Do App </h1>
+		</div>
+		<form method="post" autocomplete="off">
+			<input type="text" id="tarefa-titulo" placeholder="Adicionar nova tarefa..." required>
+			<input type="text" id="tarefa-descricao" placeholder="Descrição..." required>
+			<button type="submit"> + </button>
+		</form>
+	</header>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<ul id="tarefas"></ul>
+	</main>
+{% endblock %}
+
+{% block script %} 
+	<script type="module" src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

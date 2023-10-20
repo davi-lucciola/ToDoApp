@@ -16,7 +16,7 @@ function gerar_card_tarefa(tarefa) {
 }
 
 // Requisitando o Backend
-const BASE_URL = 'http://127.0.0.1:8080'
+const BASE_URL = 'http://127.0.0.1:5000'
 
 async function buscar_tarefas() {
     const request = {
@@ -26,7 +26,7 @@ async function buscar_tarefas() {
         }
     }
 
-    const response = await fetch(`${BASE_URL}/tarefas`, request)
+    const response = await fetch(`${BASE_URL}/tarefa`, request)
     return response
 }
 
@@ -38,7 +38,7 @@ async function buscar_tarefa_por_id(id) {
         }
     }
 
-    const response = await fetch(`${BASE_URL}/tarefas/${id}`, request)
+    const response = await fetch(`${BASE_URL}/tarefa/${id}`, request)
     return response
 }
 
@@ -51,7 +51,7 @@ async function cadastrar_tarefa(tarefa) {
         body: JSON.stringify(tarefa)
     }
 
-    const response = await fetch(`${BASE_URL}/tarefas`, request)
+    const response = await fetch(`${BASE_URL}/tarefa`, request)
     return response
 }
 
@@ -63,7 +63,7 @@ async function deletar_tarefa(id) {
         }
     }
 
-    const response = await fetch(`${BASE_URL}/tarefas/${id}`, request)
+    const response = await fetch(`${BASE_URL}/tarefa/${id}`, request)
     return response
 }
 
@@ -76,7 +76,7 @@ async function atualizar_tarefa(tarefa) {
         body: JSON.stringify(tarefa)
     }
 
-    const response = await fetch(`${BASE_URL}/tarefas/${tarefa.id}`, request)
+    const response = await fetch(`${BASE_URL}/tarefa/${tarefa.id}`, request)
     return response
 }
 

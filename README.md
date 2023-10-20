@@ -2,10 +2,10 @@
 
 ## Introdução
 
-Aplicação feita em live para demostrar como ocorre a comunicação entre o frontend e o backend 
+Praticando Aplicações Full Stack com Flask 
 
 <div align="center">
-    <img src="frontend/public/images/taks-app-to-readme.gif">        
+    <img src="./taks-app-to-readme.gif">        
 </div> 
 
 ## Tecnologias Utilizadas
@@ -13,7 +13,7 @@ Aplicação feita em live para demostrar como ocorre a comunicação entre o fro
 ### Backend
 
 - Python >= 3.11.0
-- FastApi (e seu ecossistema)
+- Flask (e seu ecossistema)
 
 ### Frontend
 
@@ -23,22 +23,10 @@ Aplicação feita em live para demostrar como ocorre a comunicação entre o fro
 
 ## Rodando Localmente
 
-1. Crie e ative seu ambiente virtual do python atraves dos comandos:
-    
-    1.1 Criar  >> `python -m venv {nome do seu ambiente virtual}`
+1. Tenha o Poetry Instalado
 
-    1.2 Ativar:
+2. Instale as depêndencias atraves do comando: `poetry install`
 
-    1.2.1 >> windows -> `{nome do seu ambiente virtual}\Scripts\activate`
-    
-    1.2.1 >> linux -> `source {nome do seu ambiente virtual}/bin/activate`
-
-2. Instale as depêndencias atraves do comando: `pip install -r requirements.txt`
-
-3. Inicie sua api rodando com o python o arquivo "main.py" na pasta "backend" (`python ./backend/main.py`)
- 
-4. Baixe a extensão `Live Server` do vscode
-
-5. Inicie sua aplicação frontend clicando com o botão direito no arquivo `./frontend/index.html` e depois clique na opção `Open with Live Server` ou `Abrir com o Live Server`
+3. Inicie sua aplicação rodando com o python o arquivo "main.py" (`python ./main.py`)
 
 Pronto! Agora a aplicação está rodando localmente na sua maquina!
