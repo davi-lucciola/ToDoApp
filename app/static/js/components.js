@@ -1,4 +1,4 @@
-import { handleSwitchCompleteTask } from "./script.js"
+import { handleDeleteEvent, handleSwitchCompleteTask } from "./script.js"
 
 export function Task(task) {
   // Criando Li Tarefa
@@ -44,7 +44,11 @@ function TaskActions(task) {
   botoesTarefa.appendChild(checkboxCompletar)
 
   let spanExcluir = document.createElement('span')
+  spanExcluir.id = `delete_span-${task.id}`
+  spanExcluir.addEventListener('click', handleDeleteEvent)
+
   let trashIcon = document.createElement('ion-icon')
+  trashIcon.id = `delete_icon-${task.id}`
   trashIcon.setAttribute('name', 'trash-outline')
 
   spanExcluir.appendChild(trashIcon)

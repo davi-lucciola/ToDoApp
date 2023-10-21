@@ -1,8 +1,8 @@
 from http import HTTPStatus
-from config import db
-from models import Task
-from exceptions import DomainException
-from flask import Blueprint, Response, jsonify, request
+from flask import Blueprint, jsonify, request
+from ..config import db
+from ..exceptions import DomainException
+from ..models import Task
 
 
 task_router = Blueprint('Task', 'task_bp')

@@ -1,6 +1,5 @@
-from flask import jsonify
-from config import BaseModel
-from exceptions import ValidationException
+from ..config import BaseModel
+from ..exceptions import ValidationException
 from datetime import datetime as dt
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
 

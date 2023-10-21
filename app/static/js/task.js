@@ -27,6 +27,7 @@ export class TaskService {
     }
 
     async delete(taskId) {
-
+        const response = await this.api.delete(`/tarefa/${taskId}`)
+        return response
     }
 }

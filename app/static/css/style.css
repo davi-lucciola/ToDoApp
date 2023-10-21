@@ -76,9 +76,12 @@ header form input {
 
     color: var(--white);
     background: transparent;
+    background-color: rgba(0, 0, 0, 0.164);
+
     font-size: 20px;
     font-family: var(--standard-font);
-    border-bottom: 1px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transition: 0.3s;
 }
 
 header form input:focus {
@@ -89,8 +92,12 @@ header form input::placeholder {
     color: var(--white);
 }
 
-header form input:focus, header form input:hover, header form input:valid {
-    background-color: rgba(0, 0, 0, 0.164);
+header form input:nth-child(1):focus, header form input:nth-child(1):hover {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header form input:nth-child(2):focus, header form input:nth-child(2):hover {
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 header form button[type="submit"] {
@@ -262,7 +269,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 
     height: 6vh;

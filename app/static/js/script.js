@@ -8,12 +8,23 @@ const API = new HttpClient(BASE_PATH)
 const taskService = new TaskService(API)
 
 // Html Tags
+const taskForm = document.getElementById('create-task')
 const ulTasks = document.getElementById('tasks');
 
 // Handlers
+// Load Page
+async function handleLoadData() {
+    let response = await taskService.findAll()
+    let tasks = await response.json()
+
+    for (let task of tasks) {
+        ulTasks.appendChild(Task(task))
+    }
+}
+
 async function handleCreateTask(event) {
     event.preventDefault()
-
+    
     let task = {
         title: document.getElementById('task-title').value.trim(),
         description: document.getElementById('task-description').value.trim(),
@@ -36,20 +47,17 @@ export async function handleSwitchCompleteTask(event) {
     taskService.update(task)
 }
 
-async function handleLoadData() {
-    let response = await taskService.findAll()
-    let tasks = await response.json()
+export async function handleDeleteEvent(event) {
+    let button = event.target
+    let taskId = button.id.split('-')[1]
 
-    for (let task of tasks) {
-        ulTasks.appendChild(Task(task))
-    }
+    let liTask = document.getElementById(`task-${taskId}`)
+    liTask.remove()
+
+    await taskService.delete(taskId)
 }
 
-// Load Page
+// Event listers
 addEventListener('load', handleLoadData)
-
-// Create Task
-const taskForm = document.getElementById('create-task')
 taskForm.addEventListener('submit', handleCreateTask)
 
-// Complete / Uncomplete Task
