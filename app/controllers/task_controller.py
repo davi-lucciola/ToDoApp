@@ -5,10 +5,10 @@ from ..exceptions import DomainException
 from ..models import Task
 
 
-task_router = Blueprint('Task', 'task_bp')
+task_bp = Blueprint('Task', 'task_bp')
 
 
-@task_router.route('/tarefa', methods=['GET'])
+@task_bp.route('/tarefa', methods=['GET'])
 def index():
     tasks: list[Task] = db.session.query(Task).all()
     if len(tasks) == 0:
@@ -16,7 +16,7 @@ def index():
 
     return jsonify([task.to_json() for task in tasks])
 
-@task_router.route('/tarefa/<int:id>', methods=['GET'])
+@task_bp.route('/tarefa/<int:id>', methods=['GET'])
 def show(id: id):
     task: Task = db.session.query(Task).filter(Task.id == id).first()
     if task is None:
@@ -24,7 +24,7 @@ def show(id: id):
 
     return task.to_json()
 
-@task_router.route('/tarefa', methods=['POST'])
+@task_bp.route('/tarefa', methods=['POST'])
 def save():
     data: dict = request.get_json()
     task: Task = Task(**data)
@@ -37,7 +37,7 @@ def save():
 
     return (jsonify({'message': 'Tarefa criada com sucesso.', 'createdId': task.id}), HTTPStatus.CREATED)
 
-@task_router.route('/tarefa/<int:id>', methods=['PUT'])
+@task_bp.route('/tarefa/<int:id>', methods=['PUT'])
 def update(id: int):
     data: dict = request.get_json()
     task: Task = Task(**data)
@@ -53,7 +53,7 @@ def update(id: int):
     return (jsonify({'message': 'Tarefa alterada com sucesso.'}), HTTPStatus.CREATED)
 
 
-@task_router.route('/tarefa/<int:id>', methods=['DELETE'])
+@task_bp.route('/tarefa/<int:id>', methods=['DELETE'])
 def delete(id):
     task_in_db: Task = db.session.query(Task).filter(Task.id == id).first()
     if task_in_db is None:

@@ -1,29 +1,26 @@
-from flask import Flask, make_response, redirect, render_template
+from flask import Flask, make_response, redirect
 from .config import Config, db
 from .exceptions import BaseException
-from .controllers import task_router
+from .controllers import task_bp, user_bp
 
 
 def create_app() -> Flask:
     app = Flask(__name__, template_folder='./views')
     app.config.from_object(Config)
 
+    # Bluprints
+    app.register_blueprint(user_bp)
+    app.register_blueprint(task_bp)
+
     # Base Routes
     @app.route('/')
     def index():
         return redirect('/home')
 
-    @app.route('/home')
-    def home():
-        return render_template('home.html')
-
     # Exception Handler
     @app.errorhandler(BaseException)
     def exception_handler(error: BaseException):
         return make_response({'message': error.message}, error.status_code)
-
-    # Bluprints
-    app.register_blueprint(task_router)
 
     # Database
     with app.app_context():
