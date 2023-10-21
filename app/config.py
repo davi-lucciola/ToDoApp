@@ -9,6 +9,6 @@ BaseModel = db.Model
 
 class Config:
     DUBUG = True
-    JSON_AS_ASCII = False
+    CORS_HEADERS = 'Access-Control-Allow-Origin'
     JSON_SORT_KEYS = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///tasks.db'

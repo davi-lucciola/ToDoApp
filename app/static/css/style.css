@@ -85,6 +85,10 @@ header form input:focus {
     outline: none;
 }
 
+header form input::placeholder {
+    color: var(--white);
+}
+
 header form input:focus, header form input:hover, header form input:valid {
     background-color: rgba(0, 0, 0, 0.164);
 }
@@ -95,13 +99,14 @@ header form button[type="submit"] {
     align-items: center;
     width: 60px;
     height: 60px;
+    padding-bottom: 8px;
     border-radius: 50%;
     border: none;
 
     
     color: aliceblue;
     background: transparent;
-    font-size: 24px;
+    font-size: 32px;
     font-family: var(--standard-font);
     font-weight: 900;
     transition: 0.3s;
@@ -122,21 +127,24 @@ main {
     justify-content: flex-start;
 
     min-height: 70;
+    transition: 0.3s;
 }
 
-#tarefas {
+#tasks {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding: 4rem;
     gap: 24px;
+    transition: 0.3s;
 }
 
-#tarefas li {
+#tasks li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: 0.3s;
     
     width: 60%;
     max-width: 700px;
@@ -147,33 +155,36 @@ main {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.747);
 }
 
-#tarefas .tarefa {
-    border-left: 20px solid var(--primary-color);
-    transition: 0.3s;
+#task li:hover {
+    transform: scale(1.2);
 }
 
-#tarefas .tarefa-completa {
-    border-left: 20px solid var(--secondary-color);
+#tasks .task {
+    border-left: 20px solid var(--primary-color);
+}
+
+#tasks .task-completed {
+    border-left: 20px solid rgb(230, 96, 0);
     font-family: var(--title-font);
-    transition: 0.3s;
+
     background-color: rgb(190, 199, 206);
 }
 
-.tarefas-info {
+.task-info {
     align-self: flex-start;
 }
 
-.tarefas-info span {
+.task-info span {
     font-family: var(--standard-font);
     font-size: 24px;
 }
 
-.tarefas-info p {
+.task-info p {
     padding-top: 10px;
     font-family: var(--title-font);
 }
 
-.tarefa-completa .tarefas-info {
+.task-completed .task-info {
     text-decoration: line-through;
 }
 
@@ -225,16 +236,40 @@ li .botoes span {
     display: flex;
     align-items: center;
     justify-content: center;
+    
     padding: 8px;
     border-radius: 50%;
+
+    
 }
+
+li .botoes span ion-icon {
+    height: 24px;
+    width: 24px;
+}
+
+li .botoes span:hover > ion-icon {
+    color: var(--white);
+}
+
 
 li .botoes span:hover {
     background-color: rgb(250, 35, 35);
     cursor: pointer;
 }
 
-li .botoes img {
-    width: 24px;
-    height: 24px;
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    height: 6vh;
+    width: 100%;
+
+    font-family: var(--title-font);
+
+    color: var(--white);
+    background: var(--gradiente);
 }

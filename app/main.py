@@ -1,4 +1,5 @@
 from flask import Flask, make_response, redirect, render_template
+from flask_cors import CORS
 from config import Config, db
 from controllers import task_router
 from models import *
@@ -6,6 +7,7 @@ from exceptions import BaseException
 
 
 app = Flask(__name__, template_folder='./views')
+cors = CORS(app)
 app.config.from_object(Config)
 
 # Base Routes
@@ -15,7 +17,7 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', tasks=db.session.query(Task).all())
 
 # Exception Handler
 @app.errorhandler(BaseException)

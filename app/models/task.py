@@ -1,3 +1,4 @@
+from flask import jsonify
 from config import BaseModel
 from exceptions import ValidationException
 from datetime import datetime as dt
@@ -9,7 +10,8 @@ class Task(BaseModel):
 
     id: int = Column(Integer, primary_key=True, nullable=False)
     title: str = Column(String, nullable=False)
-    completed: str = Column(Boolean, nullable=False, default=False)
+    description: str = Column(String, nullable=True)
+    completed: bool = Column(Boolean, nullable=False, default=False)
     date_created: dt = Column(DateTime, nullable=False, default=dt.now())
     date_completed: dt = Column(DateTime, nullable=True)
 
@@ -19,6 +21,21 @@ class Task(BaseModel):
         
         if self.completed is None:
             raise ValidationException('O campo completo não pode ser nulo.')
+    
+    def to_json(self):
         
-        if self.date_created > self.date_completed:
-            raise ValidationException('A data de criação não pode ser maior que a data de finalização.')
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'completed': self.completed,
+            'date_created': self.date_created.timestamp(),
+            'date_completed': self.date_completed.timestamp() \
+                if self.date_completed is not None else None
+        }
+    
+    def update(self, task):
+        self.title = task.title
+        self.description = task.description
+        self.completed = task.completed
+        self.date_completed = dt.now()

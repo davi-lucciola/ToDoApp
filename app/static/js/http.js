@@ -1,4 +1,4 @@
-class HttpClient {
+export class HttpClient {
   constructor(base_url) {
     this.base_url = base_url
   }
@@ -26,9 +26,9 @@ class HttpClient {
     return fetch(endpoint, request)
   }
 
-  async post(endpoint, body) {
+  async put(endpoint, body) {
     const request = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
           'Content-Type': 'application/json'
       },
@@ -49,5 +49,3 @@ class HttpClient {
     return fetch(`${this.base_url}${endpoint}`, request)  
   }
 }
-
-export default HttpClient
