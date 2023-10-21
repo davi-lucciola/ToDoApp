@@ -3,7 +3,7 @@ import { HttpClient } from "./http.js";
 import { TaskService } from "./task.js";
 
 // App Config
-const BASE_PATH = 'http://localhost:5000'
+const BASE_PATH = 'https://to-do-app-hwx0.onrender.com'
 const API = new HttpClient(BASE_PATH)
 const taskService = new TaskService(API)
 
