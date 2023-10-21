@@ -1,19 +1,17 @@
 # To Do App
 
-## Introdução
-
-Praticando Aplicações Full Stack com Flask 
+## Introduction
 
 <div align="center">
     <img src="./taks-app-to-readme.gif">        
 </div> 
 
-## Tecnologias Utilizadas
+## Technologys
 
 ### Backend
 
-- Python >= 3.11.0
-- Flask (e seu ecossistema)
+- Python >= 3.10
+- Flask
 
 ### Frontend
 
@@ -21,12 +19,22 @@ Praticando Aplicações Full Stack com Flask
 - HTML
 - CSS
 
-## Rodando Localmente
+## Run Local
 
-1. Tenha o Poetry Instalado
+### With Python
 
-2. Instale as depêndencias atraves do comando: `poetry install`
+1. Install Python >= 3.10
+2. Install (Poetry)[https://python-poetry.org/]
+3. Install dependencies:
+> `poetry install`
+4. Start your application running:
+> `poetry run flask run --debug`
 
-3. Inicie sua aplicação rodando com o python o arquivo "main.py" (`python ./main.py`)
+### With Docker
 
-Pronto! Agora a aplicação está rodando localmente na sua maquina!
+1. Build the repository image:
+> `docker build . -t <image-name>`
+2. Run the container:
+> `docker run -p 5000:5000 --name <container-name> -d <image-name>:<tag>`
+
+Finish! Now the application are running in your machine!
