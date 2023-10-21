@@ -4,8 +4,9 @@ from app import create_app
 
 
 app: Flask = create_app()
-cors = CORS(app)
 
+PRODUCTION_URL = 'https://to-do-app-hwx0.onrender.com/'
+cors = CORS(app, origins=[PRODUCTION_URL])
 
 if __name__ == '__main__':
     app.run(debug=True)
