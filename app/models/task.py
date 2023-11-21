@@ -37,4 +37,4 @@ class Task(BaseModel):
         self.title = task.title
         self.description = task.description
         self.completed = task.completed
-        self.date_completed = dt.now()
+        self.date_completed = dt.now() if task.completed is True else None

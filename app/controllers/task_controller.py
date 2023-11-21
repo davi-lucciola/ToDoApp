@@ -1,4 +1,5 @@
 from http import HTTPStatus
+from datetime import datetime as dt
 from flask import Blueprint, jsonify, request
 from ..config import db
 from ..exceptions import DomainException
@@ -30,7 +31,8 @@ def save():
     task: Task = Task(**data)
     task.id = None
     task.validate()
-
+    task.date_completed = dt.now() if task.completed is True else None
+    
     db.session.add(task)
     db.session.commit()
     db.session.refresh(task)
