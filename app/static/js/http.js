@@ -11,7 +11,7 @@ export class HttpClient {
       }
     } 
 
-    return fetch(`${this.base_url}${endpoint}`, request)  
+    return fetch(`${this.base_url}${endpoint}`, request)
   }
 
   async post(endpoint, body) {
@@ -23,7 +23,7 @@ export class HttpClient {
       body: JSON.stringify(body)
     }
     
-    return fetch(endpoint, request)
+    return fetch(`${this.base_url}${endpoint}`, request)
   }
 
   async put(endpoint, body) {
@@ -35,7 +35,7 @@ export class HttpClient {
       body: JSON.stringify(body)
     }
     
-    return fetch(endpoint, request)
+    return fetch(`${this.base_url}${endpoint}`, request)
   }
 
   async delete(endpoint) {

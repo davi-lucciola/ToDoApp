@@ -137,6 +137,12 @@ main {
     transition: 0.3s;
 }
 
+#messages {
+    margin-top: 16px;
+    font-size: 32px;
+    font-family: var(--standard-font);
+}
+
 #tasks {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 import { handleDeleteEvent, handleSwitchCompleteTask } from "./script.js"
 
-export function Task(task) {
+function Task(task) {
   // Criando Li Tarefa
   let liTask = document.createElement('li')
   liTask.classList.add(task.completed ? 'task-completed' : 'task')
@@ -54,4 +54,23 @@ function TaskActions(task) {
   spanExcluir.appendChild(trashIcon)
   botoesTarefa.appendChild(spanExcluir)
   return botoesTarefa
+}
+
+export function renderTasks(tasks) {
+  const ulTasks = document.getElementById('tasks')
+  ulTasks.textContent = ''
+
+  for (let task of tasks) {
+    ulTasks.appendChild(Task(task))
+  }
+}
+
+export function showMessage(message) {
+  const pMessages = document.querySelector('#messages')
+  pMessages.textContent = message
+}
+
+export function clearMessage() {
+  const pMessages = document.querySelector('#messages')
+  pMessages.textContent = ''
 }

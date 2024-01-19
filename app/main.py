@@ -4,7 +4,7 @@ from app import create_app
 
 
 app: Flask = create_app()
-cors = CORS(app)
+cors = CORS(app, origins=["*"])
 
 
 if __name__ == '__main__':

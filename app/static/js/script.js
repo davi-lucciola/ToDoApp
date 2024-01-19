@@ -1,25 +1,32 @@
-import { Task } from "./components.js";
+import { renderTasks, showMessage, clearMessage } from "./components.js";
 import { HttpClient } from "./http.js";
 import { TaskService } from "./task.js";
 
 // App Config
-const BASE_PATH = 'http://localhost:5000'
+const BASE_PATH = 'http://127.0.0.1:5000'
 const API = new HttpClient(BASE_PATH)
 const taskService = new TaskService(API)
 
 // Html Tags
 const taskForm = document.getElementById('create-task')
-const ulTasks = document.getElementById('tasks');
+
+// Global States
+var tasks = []
 
 // Handlers
 // Load Page
 async function handleLoadData() {
     let response = await taskService.findAll()
-    let tasks = await response.json()
-
-    for (let task of tasks) {
-        ulTasks.appendChild(Task(task))
+    
+    if (response.status == 204) {
+        showMessage('Não há tarefas cadastradas')
+        return
     }
+
+    clearMessage()
+    tasks = await response.json()
+    
+    renderTasks(tasks)
 }
 
 async function handleCreateTask(event) {
@@ -33,7 +40,9 @@ async function handleCreateTask(event) {
     
     let response = await taskService.create(task).then(data => data.json())
     task.id = response.createdId
-    ulTasks.appendChild(Task(task))
+    tasks.push(task)
+    clearMessage()
+    renderTasks(tasks)
 }
 
 export async function handleSwitchCompleteTask(event) {
@@ -42,7 +51,8 @@ export async function handleSwitchCompleteTask(event) {
     const liTask = document.getElementById(`task-${taskId}`)
     liTask.className = checkbox.checked ? 'task-completed' : 'task' 
     
-    let task = await taskService.findById(taskId).then(data => data.json())
+    
+    let task = tasks.find((task) => task.id = taskId)
     task.completed = checkbox.checked
     taskService.update(task)
 }
@@ -51,10 +61,16 @@ export async function handleDeleteEvent(event) {
     let button = event.target
     let taskId = button.id.split('-')[1]
 
+    const response = await taskService.delete(taskId)
+
+    if (!response.ok) {
+        showMessage('Não foi possivel excluir a tarefa.')
+        return
+    }
+
+    tasks = tasks.filter((task) => task.id != taskId)
     let liTask = document.getElementById(`task-${taskId}`)
     liTask.remove()
-
-    await taskService.delete(taskId)
 }
 
 // Event listers
